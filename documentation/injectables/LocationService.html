@@ -1,0 +1,806 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>surbana documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">surbana documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >LocationService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/location/location.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(locationRepository: <a href="../entitys/Location.html" target="_self">Repository&lt;Location&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/location/location.service.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>locationRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/Location.html" target="_self" >Repository&lt;Location&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(createLocationDto: <a href="../classes/CreateLocationDto.html" target="_self">CreateLocationDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/location/location.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createLocationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateLocationDto.html" target="_self" >CreateLocationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../entitys/Location.html" target="_self" >Promise&lt;Location&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/location/location.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../entitys/Location.html" target="_self" >Promise&lt;Location[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(location_number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/location/location.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>location_number</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../entitys/Location.html" target="_self" >Promise&lt;Location[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(location_number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/location/location.service.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>location_number</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(location_number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, updateLocationDto: <a href="../classes/UpdateLocationDto.html" target="_self">UpdateLocationDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/location/location.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>location_number</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>updateLocationDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateLocationDto.html" target="_self" >UpdateLocationDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../entitys/Location.html" target="_self" >Promise&lt;Location&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from &#x27;@nestjs/common&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { Location } from &#x27;./entities/location.entity&#x27;;
+import { CreateLocationDto } from &#x27;./dto/create-location.dto&#x27;;
+import { UpdateLocationDto } from &#x27;./dto/update-location.dto&#x27;;
+
+@Injectable()
+export class LocationService {
+  constructor(
+    @InjectRepository(Location)
+    private readonly locationRepository: Repository&lt;Location&gt;,
+  ) {}
+
+  async create(createLocationDto: CreateLocationDto): Promise&lt;Location&gt; {
+    const { location_number, building_code } &#x3D; createLocationDto;
+
+    // Validate that the location_number starts with the building_code
+    if (!location_number.startsWith(building_code)) {
+      throw new BadRequestException(
+        &#x60;The location number must start with the same building code.&#x60;,
+      );
+    }
+
+    // Validate parent location existence for child locations
+    const segments &#x3D; location_number.split(&#x27;-&#x27;);
+    if (segments.length &gt; 1) {
+      for (let i &#x3D; 1; i &lt; segments.length; i++) {
+        if (i &#x3D;&#x3D;&#x3D; 1) continue;
+
+        const parentLocationNumber &#x3D; segments.slice(0, i + 1).join(&#x27;-&#x27;);
+        const parentLocation &#x3D; await this.locationRepository.findOne({
+          where: { location_number: parentLocationNumber, building_code },
+        });
+        if (!parentLocation) {
+          throw new BadRequestException(
+            &#x60;The parent location does not exist: ${parentLocationNumber}&#x60;,
+          );
+        }
+      }
+    }
+
+    const location &#x3D; this.locationRepository.create(createLocationDto);
+    return this.locationRepository.save(location);
+  }
+
+  async findAll(): Promise&lt;Location[]&gt; {
+    return this.locationRepository.find();
+  }
+
+  async findOne(location_number: string): Promise&lt;Location[]&gt; {
+    const query &#x3D; &#x60;WITH RECURSIVE LocationTree AS (
+    SELECT * FROM Location WHERE location_number &#x3D; $1
+    UNION ALL
+    SELECT l.* FROM Location l
+    INNER JOIN LocationTree lt ON l.location_number LIKE lt.location_number || &#x27;-%&#x27;
+    )
+    SELECT distinct * FROM LocationTree;&#x60;;
+    return this.locationRepository.query(query, [location_number]);
+  }
+
+  async update(
+    location_number: string,
+    updateLocationDto: UpdateLocationDto,
+  ): Promise&lt;Location&gt; {
+    const location &#x3D; await this.locationRepository.findOne({
+      where: { location_number },
+    });
+
+    if (!location) {
+      throw new NotFoundException(
+        &#x60;Location with number ${location_number} not found&#x60;,
+      );
+    }
+
+    const newLocationNumber &#x3D;
+      updateLocationDto.location_number || location.location_number;
+    const newBuildingCode &#x3D;
+      updateLocationDto.building_code || newLocationNumber.split(&#x27;-&#x27;)[0];
+
+    // Validate that the provided building_code matches the location_number prefix if both are provided
+    if (
+      updateLocationDto.building_code &amp;&amp;
+      updateLocationDto.location_number &amp;&amp;
+      !newLocationNumber.startsWith(updateLocationDto.building_code)
+    ) {
+      throw new BadRequestException(
+        &#x60;The building code and location number prefix do not match.&#x60;,
+      );
+    }
+
+    // Determine the updated location_number with the new building_code prefix if only building_code is provided
+    const finalNewLocationNumber &#x3D; updateLocationDto.location_number
+      ? newLocationNumber
+      : &#x60;${newBuildingCode}${location_number.slice(location_number.indexOf(&#x27;-&#x27;))}&#x60;;
+
+    // Validate hierarchy existence in the new building
+    const segments &#x3D; finalNewLocationNumber.split(&#x27;-&#x27;);
+    for (let i &#x3D; 1; i &lt; segments.length; i++) {
+      // Skip the check for the first child location directly under the building
+      if (i &#x3D;&#x3D;&#x3D; 1) continue;
+
+      const parentLocationNumber &#x3D; segments.slice(0, i + 1).join(&#x27;-&#x27;);
+      const parentLocation &#x3D; await this.locationRepository.findOne({
+        where: {
+          location_number: parentLocationNumber,
+          building_code: newBuildingCode,
+        },
+      });
+      if (!parentLocation) {
+        throw new BadRequestException(
+          &#x60;The location hierarchy does not exist in the new building: ${parentLocationNumber}&#x60;,
+        );
+      }
+    }
+
+    // Fetch all descendants
+    const query &#x3D; &#x60;
+        WITH RECURSIVE LocationTree AS (
+            SELECT * FROM location WHERE location_number &#x3D; $1
+            UNION ALL
+            SELECT l.* FROM location l
+            INNER JOIN LocationTree lt ON l.location_number LIKE lt.location_number || &#x27;-%&#x27;
+        )
+        SELECT * FROM LocationTree
+    &#x60;;
+    const descendants &#x3D; await this.locationRepository.query(query, [
+      location_number,
+    ]);
+
+    // Update each descendant&#x27;s location_number and building_code
+    for (const descendant of descendants) {
+      const updatedLocationNumber &#x3D; descendant.location_number.replace(
+        location_number,
+        finalNewLocationNumber,
+      );
+      await this.locationRepository.update(descendant.location_number, {
+        location_number: updatedLocationNumber,
+        building_code: newBuildingCode,
+      });
+    }
+
+    // Update the location itself
+    await this.locationRepository.update(location_number, {
+      ...updateLocationDto,
+      location_number: finalNewLocationNumber,
+      building_code: newBuildingCode,
+    });
+
+    return this.locationRepository.findOne({
+      where: { location_number: finalNewLocationNumber },
+    });
+  }
+
+  async remove(location_number: string): Promise&lt;void&gt; {
+    await this.locationRepository.delete(location_number);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'LocationService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
